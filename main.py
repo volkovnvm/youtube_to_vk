@@ -76,7 +76,7 @@ while True:
                     video_id = response.get("video_id")
                     response = upload.thumb_video(
                         photo_path="/root/video.jpg",
-                        owner_id=f"-{group_id},
+                        owner_id=f"-{group_id}",
                         video_id=video_id,
                     )
                     vk.messages.send(
