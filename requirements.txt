@@ -1,0 +1,3 @@
+vk_api @ git+https://github.com/python273/vk_api.git
+yt-dlp
+requests
