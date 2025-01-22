@@ -5,15 +5,15 @@ import vk_api
 from vk_api.utils import get_random_id
 import time
 import os 
-from youtubers import Youtuber, youtubers_list
+from youtubers import youtubers_list
 
-VK_TOKEN = os.getenv(TOKEN_VK)
+VK_TOKEN = os.getenv(TOKEN_VK) #также токен можно указать напрямую в файле VK_TOKEN = "ваш_токен"
 vk_session = vk_api.VkApi(token=VK_TOKEN)
 upload = vk_api.VkUpload(vk_session)
 vk = vk_session.get_api()
 
 # user_id = заменить на ваш айди в вк  
-user_id = os.getenv(USER_ID)
+user_id = os.getenv(USER_ID) #аналогично можно указать напрямую в файле как и токен
 
 while True:
     try:
@@ -68,14 +68,14 @@ while True:
                     response = upload.video(
                         video_file=file_name,
                         name=video_name,
-                        group_id=group_id,
+                        group_id=youtuber.group_id,
                         album_id=youtuber.pl_id,
                         wallpost="1",
                     )
                     print("загрузка обложки")
                     video_id = response.get("video_id")
                     response = upload.thumb_video(
-                        photo_path="/root/video.jpg",
+                        photo_path="/root/video.jpg", #здесь нужно указать прямой путь до папки с программой в формате "/путь/к/файлу/video.jpg"
                         owner_id=f"-{group_id}",
                         video_id=video_id,
                     )
