@@ -5,7 +5,7 @@ import vk_api
 from vk_api.utils import get_random_id
 import time
 import os 
-from youtubers import youtubers
+from youtubers import Youtuber, youtubers_list
 
 VK_TOKEN = os.getenv(TOKEN_VK)
 vk_session = vk_api.VkApi(token=VK_TOKEN)
@@ -17,7 +17,7 @@ user_id = os.getenv(USER_ID)
 
 while True:
     try:
-        for youtuber in youtubers:
+        for youtuber in youtubers_list:
             print("получаем хтмл")
             html = requests.get(f"https://www.youtube.com/@{youtuber}/videos").text
             print("проверяем последнее видео")
