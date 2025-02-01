@@ -11,7 +11,7 @@ VK_TOKEN = os.getenv(TOKEN_VK) #также токен можно указать 
 vk_session = vk_api.VkApi(token=VK_TOKEN)
 upload = vk_api.VkUpload(vk_session)
 vk = vk_session.get_api()
-script_dir = os.path.dirname(os.path.abspath(__main__))
+script_dir = os.path.dirname(os.path.abspath(__file__))
 
 # user_id = заменить на ваш айди в вк  
 user_id = os.getenv(USER_ID) #аналогично можно указать напрямую в файле как и токен
